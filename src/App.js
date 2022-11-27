@@ -1,40 +1,25 @@
-import React from "react";
+import React,{useState} from "react";
+import Header from "./Components/Header";
+import './index.css';
+import FeedBackData from "./data/FeedBackData";
+import FeedBackList from "./Components/FeedBackList";
 function App() {
-    const title = 'Blog Post';
-    const body = 'This is my blog post'
-    const comments = [
-        { id: 1, text: 'Comment One' },
-        { id: 2, text: 'Comment Two' },
-        { id: 3, text: 'Comment Three' }
+    const [feedback, setFeedback] = useState(FeedBackData)
 
-    ]
-
-    const loading = false;
-    const showComments = false;
-
-    if (loading) return <h1>Loading...</h1>
-
-    const commentBlock = (
-        <div className="comments">
-            <h3>Comments ({comments.length})</h3>
-                <ul>
-                    {
-                        comments.map((comment, index) => (
-                            <li key={index}>{comment.text}</li>
-                        ))
-                    }
-            </ul>
-        </div>
-    )
-
+    const deleteFeedback = (id) => {
+        console.log('App=>',id)
+        if(window.confirm('Are you sure want to delete ?')) {
+            setFeedback(feedback.filter((item)=>item.id !== id))
+        }
+    }
     return (
+        <>
+        <Header/>
         <div className="container">
-            <h1>{title.toUpperCase()}</h1>
-            <p>{body}</p>
-            {showComments && commentBlock}
+          <FeedBackList feedback={feedback} handleDelete={deleteFeedback}/>
 
         </div>
-
+        </>
     )
 }
 
