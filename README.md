@@ -1,5 +1,5 @@
 # Feedback-App
-URL to  [Open Feedback App](https://63889ea94e0fb819ed9df66b--harmonious-selkie-de69a9.netlify.app)
+URL to  [Open Feedback App](https://harmonious-selkie-de69a9.netlify.app)
 
 # Getting Started with Create React App
 
